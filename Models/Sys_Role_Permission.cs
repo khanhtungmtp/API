@@ -5,20 +5,12 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Models;
 
 [PrimaryKey("Id")]
-[Table("Sys_User_Role")]
-public partial class Sys_User_Role
+[Table("Sys_Role_Permission")]
+public partial class Sys_Role_Permission
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
-
-    public int UserId { get; set; }
     public int RoleId { get; set; }
-
-    // Thêm khóa ngoại
-    [ForeignKey("Id")]
-    public virtual Sys_User? User { get; set; }
-
-    [ForeignKey("Id")]
-    public virtual Sys_Role? Role { get; set; }
+    public int DirectoryId { get; set; }
 }

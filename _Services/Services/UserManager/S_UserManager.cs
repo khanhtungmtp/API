@@ -1,11 +1,9 @@
 using API._Repositories;
 using API._Services.Interfaces.UserManager;
-using API.Dtos.Base;
 using API.Dtos.UserManager;
 using API.Helpers.Utilities;
 using API.Models;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using LinqKit;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,11 +13,6 @@ public class S_UserManager(IRepositoryAccessor repositoryAccessor, MapperConfigu
 {
     private readonly MapperConfiguration _configMapper = configMapper;
     public Task<Sys_User?> AddAndUpdateUser(Sys_User userObj)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<AuthenticateResponse?> Authenticate(LoginDto model)
     {
         throw new NotImplementedException();
     }
@@ -59,42 +52,60 @@ public class S_UserManager(IRepositoryAccessor repositoryAccessor, MapperConfigu
             predicate.And(x => x.IsActive == param.IsActive);
         }
 
-        List<Sys_User> users = await _repositoryAccessor.Sys_User.FindAll(predicate, true).ToListAsync();
-        List<Sys_User_Role> userRoles = await _repositoryAccessor.Sys_User_Role.FindAll(x => users.Select(a => a.Id).Contains(x.UserId), true).ToListAsync();
-        List<Sys_UserDto>? list = await _repositoryAccessor.Sys_User.FindAll(true)
-        .GroupJoin(_repositoryAccessor.Sys_User_Role.FindAll(true),
-        user => user.Id, userRole => userRole.Id, (user, userRoles) => new { user, userRoles })
-        .SelectMany(j => j.userRoles.DefaultIfEmpty(),
-        (parent, userRoles) => new { parent.user, userRoles })
-        .Join(_repositoryAccessor.Sys_Role.FindAll(true),
-        temp => temp.userRoles != null ? temp.userRoles.RoleId : 0,
-        role => role.Id,
-        (temp, role) => new { temp.user, role })
-        .Select(joined => new Sys_UserDto
+        List<Sys_User> usersWithRoles = await _repositoryAccessor.Sys_User
+        .FindAll(true)
+        .Select(user => new Sys_User
         {
-            Sys_User = joined.user,
-            Sys_Role = joined.role
+            Id = user.Id,
+            UserName = user.UserName,
+            PasswordHash = user.PasswordHash,
+            PasswordSalt = user.PasswordSalt,
+            FullName = user.FullName,
+            IsActive = user.IsActive,
+            Avatar = user.Avatar,
+            Sex = user.Sex,
+            Mobile = user.Mobile,
+            Email = user.Email,
+            LastLoginTime = user.LastLoginTime,
+            Education = user.Education,
+            DepartmentId = user.DepartmentId,
+            UpdateBy = user.UpdateBy,
+            CreateTime = user.CreateTime,
+            UpdateTime = user.UpdateTime,
+            // Lấy danh sách vai trò của người dùng
+            Roles = user.UserRoles != null ? user.UserRoles.Select(ur => ur.Role).ToList() : null
         }).ToListAsync();
-        // List<Sys_UserDto> result = account.Select(item =>
-        // {
-        //     item.UpdateTimeStr = item.UpdateTime?.ToString("yyyy/MM/dd HH:mm:ss");
-        //     item.ListRole = accountRoles.Where(r => r.Account == item.UserName).Select(r => r.Role).Distinct().ToList();
 
-        //     item.IsActivestr = param.Lang == "zh" ? (!item.IsActive ? "N.啟用" : "Y.停用") : (!item.IsActive ? "N.Disabled" : "Y.Enabled");
-        //     item.Role = string.Join("/ ", item.ListRole);
-        //     return item;
-        // }).ToList();
-
-        // if (!string.IsNullOrWhiteSpace(param.Role) && param.ListRole.Count > 0)
-        // {
-        //     result = result.Where(item => item.ListRole.Any(role => param.ListRole.Contains(role))).ToList();
-        // }
-
-        return users;
+        return usersWithRoles;
     }
 
     public async Task<Sys_User?> GetById(int id)
     {
-        return await _repositoryAccessor.Sys_User.FirstOrDefaultAsync(x => x.Id == id);
+        return await _repositoryAccessor.Sys_User
+        .FindAll(true)
+        .Where(u => u.Id == id)
+        .Select(user => new Sys_User
+        {
+            Id = user.Id,
+            UserName = user.UserName,
+            PasswordHash = user.PasswordHash,
+            PasswordSalt = user.PasswordSalt,
+            FullName = user.FullName,
+            IsActive = user.IsActive,
+            Avatar = user.Avatar,
+            Sex = user.Sex,
+            Mobile = user.Mobile,
+            Email = user.Email,
+            LastLoginTime = user.LastLoginTime,
+            Education = user.Education,
+            DepartmentId = user.DepartmentId,
+            UpdateBy = user.UpdateBy,
+            CreateTime = user.CreateTime,
+            UpdateTime = user.UpdateTime,
+            // Lấy danh sách vai trò của người dùng
+            Roles = user.UserRoles != null ? user.UserRoles.Select(ur => ur.Role).ToList() : null
+        }).FirstOrDefaultAsync();
+
     }
+
 }

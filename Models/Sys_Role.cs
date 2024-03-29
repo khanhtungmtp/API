@@ -30,5 +30,6 @@ public partial class Sys_Role
     public DateTime UpdateTime { get; set; }
     [ForeignKey("Id")]
     public Sys_User? User { get; set; }
-    public ICollection<Sys_User_Role>? UserRoles { get; set; }
+    // Định nghĩa mối quan hệ ngược từ Sys_User_Role
+    public virtual ICollection<Sys_User_Role>? UserRoles { get; set; }
 }

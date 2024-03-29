@@ -64,7 +64,7 @@ namespace API.Migrations
                             RoleDescription = "Role for SuperAdmin",
                             RoleName = "SuperAdmin",
                             UpdateBy = "System",
-                            UpdateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4909)
+                            UpdateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(9866)
                         },
                         new
                         {
@@ -73,7 +73,7 @@ namespace API.Migrations
                             RoleDescription = "Role for Admin",
                             RoleName = "Admin",
                             UpdateBy = "System",
-                            UpdateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4911)
+                            UpdateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(9874)
                         },
                         new
                         {
@@ -82,7 +82,7 @@ namespace API.Migrations
                             RoleDescription = "Role for User",
                             RoleName = "User",
                             UpdateBy = "System",
-                            UpdateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4912)
+                            UpdateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(9893)
                         });
                 });
 
@@ -164,7 +164,7 @@ namespace API.Migrations
                         {
                             Id = 1,
                             Avatar = "",
-                            CreateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4624),
+                            CreateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8772),
                             DepartmentId = 15,
                             Education = (byte)3,
                             Email = "superadmin@gmail.com",
@@ -172,18 +172,18 @@ namespace API.Migrations
                             IsActive = true,
                             LastLoginTime = new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified),
                             Mobile = "0338716085",
-                            PasswordHash = new byte[] { 238, 186, 156, 111, 96, 221, 124, 224, 77, 109, 56, 117, 239, 246, 150, 102, 14, 205, 48, 67, 111, 253, 98, 101, 112, 133, 212, 219, 7, 41, 219, 74, 156, 244, 82, 149, 185, 118, 187, 174, 112, 81, 50, 149, 248, 58, 91, 192, 159, 140, 24, 167, 167, 68, 30, 211, 193, 244, 121, 88, 225, 156, 183, 94 },
-                            PasswordSalt = new byte[] { 242, 112, 199, 13, 248, 151, 103, 245, 119, 53, 85, 164, 145, 110, 211, 75, 204, 250, 32, 208, 41, 190, 161, 104, 220, 174, 254, 73, 21, 201, 193, 35, 134, 239, 168, 156, 67, 55, 159, 194, 178, 232, 8, 66, 131, 244, 61, 166, 162, 218, 28, 1, 213, 254, 96, 50, 83, 60, 202, 88, 132, 186, 137, 228, 158, 239, 213, 120, 21, 175, 178, 92, 23, 255, 61, 4, 1, 156, 176, 16, 21, 207, 15, 23, 125, 197, 241, 230, 52, 250, 71, 176, 115, 65, 26, 89, 61, 170, 253, 171, 72, 109, 87, 56, 6, 224, 221, 41, 68, 233, 102, 238, 111, 218, 74, 39, 110, 91, 43, 147, 57, 47, 24, 250, 17, 33, 214, 178 },
+                            PasswordHash = new byte[] { 172, 84, 0, 53, 65, 191, 231, 109, 13, 172, 251, 106, 30, 248, 76, 197, 222, 218, 245, 120, 33, 214, 75, 10, 139, 13, 179, 37, 112, 13, 0, 120, 68, 123, 152, 131, 186, 134, 171, 142, 108, 84, 100, 111, 137, 42, 216, 133, 11, 156, 48, 92, 97, 188, 0, 29, 51, 25, 12, 229, 208, 202, 195, 177 },
+                            PasswordSalt = new byte[] { 103, 156, 76, 20, 132, 58, 219, 231, 124, 87, 125, 41, 36, 249, 117, 74, 84, 105, 216, 192, 203, 198, 116, 19, 28, 121, 178, 239, 33, 193, 108, 34, 173, 94, 122, 221, 92, 134, 2, 134, 12, 103, 158, 251, 154, 27, 153, 71, 70, 164, 177, 177, 110, 209, 254, 13, 111, 105, 217, 143, 11, 44, 233, 248, 214, 58, 203, 59, 13, 145, 95, 42, 181, 132, 97, 134, 232, 33, 54, 146, 245, 77, 80, 89, 208, 175, 207, 96, 236, 205, 169, 121, 159, 195, 118, 34, 127, 5, 119, 230, 250, 171, 177, 172, 148, 212, 232, 73, 200, 104, 171, 156, 136, 122, 173, 92, 53, 11, 7, 141, 189, 225, 152, 112, 56, 97, 124, 118 },
                             Sex = 1,
                             UpdateBy = "System",
-                            UpdateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4635),
+                            UpdateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8784),
                             UserName = "superadmin"
                         },
                         new
                         {
                             Id = 2,
                             Avatar = "",
-                            CreateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4644),
+                            CreateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8806),
                             DepartmentId = 29,
                             Education = (byte)3,
                             Email = "superadmin@gmail.com",
@@ -191,18 +191,18 @@ namespace API.Migrations
                             IsActive = true,
                             LastLoginTime = new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified),
                             Mobile = "0338716085",
-                            PasswordHash = new byte[] { 238, 186, 156, 111, 96, 221, 124, 224, 77, 109, 56, 117, 239, 246, 150, 102, 14, 205, 48, 67, 111, 253, 98, 101, 112, 133, 212, 219, 7, 41, 219, 74, 156, 244, 82, 149, 185, 118, 187, 174, 112, 81, 50, 149, 248, 58, 91, 192, 159, 140, 24, 167, 167, 68, 30, 211, 193, 244, 121, 88, 225, 156, 183, 94 },
-                            PasswordSalt = new byte[] { 242, 112, 199, 13, 248, 151, 103, 245, 119, 53, 85, 164, 145, 110, 211, 75, 204, 250, 32, 208, 41, 190, 161, 104, 220, 174, 254, 73, 21, 201, 193, 35, 134, 239, 168, 156, 67, 55, 159, 194, 178, 232, 8, 66, 131, 244, 61, 166, 162, 218, 28, 1, 213, 254, 96, 50, 83, 60, 202, 88, 132, 186, 137, 228, 158, 239, 213, 120, 21, 175, 178, 92, 23, 255, 61, 4, 1, 156, 176, 16, 21, 207, 15, 23, 125, 197, 241, 230, 52, 250, 71, 176, 115, 65, 26, 89, 61, 170, 253, 171, 72, 109, 87, 56, 6, 224, 221, 41, 68, 233, 102, 238, 111, 218, 74, 39, 110, 91, 43, 147, 57, 47, 24, 250, 17, 33, 214, 178 },
+                            PasswordHash = new byte[] { 172, 84, 0, 53, 65, 191, 231, 109, 13, 172, 251, 106, 30, 248, 76, 197, 222, 218, 245, 120, 33, 214, 75, 10, 139, 13, 179, 37, 112, 13, 0, 120, 68, 123, 152, 131, 186, 134, 171, 142, 108, 84, 100, 111, 137, 42, 216, 133, 11, 156, 48, 92, 97, 188, 0, 29, 51, 25, 12, 229, 208, 202, 195, 177 },
+                            PasswordSalt = new byte[] { 103, 156, 76, 20, 132, 58, 219, 231, 124, 87, 125, 41, 36, 249, 117, 74, 84, 105, 216, 192, 203, 198, 116, 19, 28, 121, 178, 239, 33, 193, 108, 34, 173, 94, 122, 221, 92, 134, 2, 134, 12, 103, 158, 251, 154, 27, 153, 71, 70, 164, 177, 177, 110, 209, 254, 13, 111, 105, 217, 143, 11, 44, 233, 248, 214, 58, 203, 59, 13, 145, 95, 42, 181, 132, 97, 134, 232, 33, 54, 146, 245, 77, 80, 89, 208, 175, 207, 96, 236, 205, 169, 121, 159, 195, 118, 34, 127, 5, 119, 230, 250, 171, 177, 172, 148, 212, 232, 73, 200, 104, 171, 156, 136, 122, 173, 92, 53, 11, 7, 141, 189, 225, 152, 112, 56, 97, 124, 118 },
                             Sex = 1,
                             UpdateBy = "System",
-                            UpdateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4645),
+                            UpdateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8808),
                             UserName = "admin"
                         },
                         new
                         {
                             Id = 3,
                             Avatar = "",
-                            CreateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4651),
+                            CreateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8824),
                             DepartmentId = 17,
                             Education = (byte)3,
                             Email = "superadmin@gmail.com",
@@ -210,11 +210,11 @@ namespace API.Migrations
                             IsActive = true,
                             LastLoginTime = new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified),
                             Mobile = "0338716085",
-                            PasswordHash = new byte[] { 238, 186, 156, 111, 96, 221, 124, 224, 77, 109, 56, 117, 239, 246, 150, 102, 14, 205, 48, 67, 111, 253, 98, 101, 112, 133, 212, 219, 7, 41, 219, 74, 156, 244, 82, 149, 185, 118, 187, 174, 112, 81, 50, 149, 248, 58, 91, 192, 159, 140, 24, 167, 167, 68, 30, 211, 193, 244, 121, 88, 225, 156, 183, 94 },
-                            PasswordSalt = new byte[] { 242, 112, 199, 13, 248, 151, 103, 245, 119, 53, 85, 164, 145, 110, 211, 75, 204, 250, 32, 208, 41, 190, 161, 104, 220, 174, 254, 73, 21, 201, 193, 35, 134, 239, 168, 156, 67, 55, 159, 194, 178, 232, 8, 66, 131, 244, 61, 166, 162, 218, 28, 1, 213, 254, 96, 50, 83, 60, 202, 88, 132, 186, 137, 228, 158, 239, 213, 120, 21, 175, 178, 92, 23, 255, 61, 4, 1, 156, 176, 16, 21, 207, 15, 23, 125, 197, 241, 230, 52, 250, 71, 176, 115, 65, 26, 89, 61, 170, 253, 171, 72, 109, 87, 56, 6, 224, 221, 41, 68, 233, 102, 238, 111, 218, 74, 39, 110, 91, 43, 147, 57, 47, 24, 250, 17, 33, 214, 178 },
+                            PasswordHash = new byte[] { 172, 84, 0, 53, 65, 191, 231, 109, 13, 172, 251, 106, 30, 248, 76, 197, 222, 218, 245, 120, 33, 214, 75, 10, 139, 13, 179, 37, 112, 13, 0, 120, 68, 123, 152, 131, 186, 134, 171, 142, 108, 84, 100, 111, 137, 42, 216, 133, 11, 156, 48, 92, 97, 188, 0, 29, 51, 25, 12, 229, 208, 202, 195, 177 },
+                            PasswordSalt = new byte[] { 103, 156, 76, 20, 132, 58, 219, 231, 124, 87, 125, 41, 36, 249, 117, 74, 84, 105, 216, 192, 203, 198, 116, 19, 28, 121, 178, 239, 33, 193, 108, 34, 173, 94, 122, 221, 92, 134, 2, 134, 12, 103, 158, 251, 154, 27, 153, 71, 70, 164, 177, 177, 110, 209, 254, 13, 111, 105, 217, 143, 11, 44, 233, 248, 214, 58, 203, 59, 13, 145, 95, 42, 181, 132, 97, 134, 232, 33, 54, 146, 245, 77, 80, 89, 208, 175, 207, 96, 236, 205, 169, 121, 159, 195, 118, 34, 127, 5, 119, 230, 250, 171, 177, 172, 148, 212, 232, 73, 200, 104, 171, 156, 136, 122, 173, 92, 53, 11, 7, 141, 189, 225, 152, 112, 56, 97, 124, 118 },
                             Sex = 0,
                             UpdateBy = "System",
-                            UpdateTime = new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4652),
+                            UpdateTime = new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8825),
                             UserName = "user"
                         });
                 });
@@ -225,6 +225,8 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
@@ -232,6 +234,10 @@ namespace API.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Sys_User_Role");
 
@@ -246,32 +252,32 @@ namespace API.Migrations
                         {
                             Id = 2,
                             RoleId = 2,
-                            UserId = 2
+                            UserId = 1
                         },
                         new
                         {
                             Id = 3,
-                            RoleId = 2,
-                            UserId = 3
+                            RoleId = 3,
+                            UserId = 1
                         },
                         new
                         {
                             Id = 4,
-                            RoleId = 1,
-                            UserId = 4
+                            RoleId = 2,
+                            UserId = 2
                         },
                         new
                         {
                             Id = 5,
-                            RoleId = 1,
-                            UserId = 5
+                            RoleId = 3,
+                            UserId = 3
                         });
                 });
 
             modelBuilder.Entity("API.Models.Sys_Role", b =>
                 {
                     b.HasOne("API.Models.Sys_User", "User")
-                        .WithMany()
+                        .WithMany("Roles")
                         .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -283,14 +289,14 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.Sys_Role", "Role")
                         .WithMany("UserRoles")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("API.Models.Sys_User", "User")
                         .WithMany("UserRoles")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Role");
@@ -305,6 +311,8 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Sys_User", b =>
                 {
+                    b.Navigation("Roles");
+
                     b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618

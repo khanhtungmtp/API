@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class AddTable : Migration
+    public partial class InitialDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -66,7 +66,8 @@ namespace API.Migrations
                 name: "Sys_User_Role",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     RoleId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -74,17 +75,17 @@ namespace API.Migrations
                 {
                     table.PrimaryKey("PK_Sys_User_Role", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Sys_User_Role_Sys_Role_Id",
-                        column: x => x.Id,
+                        name: "FK_Sys_User_Role_Sys_Role_RoleId",
+                        column: x => x.RoleId,
                         principalTable: "Sys_Role",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Sys_User_Role_Sys_User_Id",
-                        column: x => x.Id,
+                        name: "FK_Sys_User_Role_Sys_User_UserId",
+                        column: x => x.UserId,
                         principalTable: "Sys_User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -92,18 +93,9 @@ namespace API.Migrations
                 columns: new[] { "Id", "Avatar", "CreateTime", "DepartmentId", "Education", "Email", "FullName", "IsActive", "LastLoginTime", "Mobile", "PasswordHash", "PasswordSalt", "Sex", "UpdateBy", "UpdateTime", "UserName" },
                 values: new object[,]
                 {
-                    { 1, "", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4624), 15, (byte)3, "superadmin@gmail.com", "Nguyễn Khanh Tùng", true, new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified), "0338716085", new byte[] { 238, 186, 156, 111, 96, 221, 124, 224, 77, 109, 56, 117, 239, 246, 150, 102, 14, 205, 48, 67, 111, 253, 98, 101, 112, 133, 212, 219, 7, 41, 219, 74, 156, 244, 82, 149, 185, 118, 187, 174, 112, 81, 50, 149, 248, 58, 91, 192, 159, 140, 24, 167, 167, 68, 30, 211, 193, 244, 121, 88, 225, 156, 183, 94 }, new byte[] { 242, 112, 199, 13, 248, 151, 103, 245, 119, 53, 85, 164, 145, 110, 211, 75, 204, 250, 32, 208, 41, 190, 161, 104, 220, 174, 254, 73, 21, 201, 193, 35, 134, 239, 168, 156, 67, 55, 159, 194, 178, 232, 8, 66, 131, 244, 61, 166, 162, 218, 28, 1, 213, 254, 96, 50, 83, 60, 202, 88, 132, 186, 137, 228, 158, 239, 213, 120, 21, 175, 178, 92, 23, 255, 61, 4, 1, 156, 176, 16, 21, 207, 15, 23, 125, 197, 241, 230, 52, 250, 71, 176, 115, 65, 26, 89, 61, 170, 253, 171, 72, 109, 87, 56, 6, 224, 221, 41, 68, 233, 102, 238, 111, 218, 74, 39, 110, 91, 43, 147, 57, 47, 24, 250, 17, 33, 214, 178 }, 1, "System", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4635), "superadmin" },
-                    { 2, "", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4644), 29, (byte)3, "superadmin@gmail.com", "Nguyễn Khanh Tùng", true, new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified), "0338716085", new byte[] { 238, 186, 156, 111, 96, 221, 124, 224, 77, 109, 56, 117, 239, 246, 150, 102, 14, 205, 48, 67, 111, 253, 98, 101, 112, 133, 212, 219, 7, 41, 219, 74, 156, 244, 82, 149, 185, 118, 187, 174, 112, 81, 50, 149, 248, 58, 91, 192, 159, 140, 24, 167, 167, 68, 30, 211, 193, 244, 121, 88, 225, 156, 183, 94 }, new byte[] { 242, 112, 199, 13, 248, 151, 103, 245, 119, 53, 85, 164, 145, 110, 211, 75, 204, 250, 32, 208, 41, 190, 161, 104, 220, 174, 254, 73, 21, 201, 193, 35, 134, 239, 168, 156, 67, 55, 159, 194, 178, 232, 8, 66, 131, 244, 61, 166, 162, 218, 28, 1, 213, 254, 96, 50, 83, 60, 202, 88, 132, 186, 137, 228, 158, 239, 213, 120, 21, 175, 178, 92, 23, 255, 61, 4, 1, 156, 176, 16, 21, 207, 15, 23, 125, 197, 241, 230, 52, 250, 71, 176, 115, 65, 26, 89, 61, 170, 253, 171, 72, 109, 87, 56, 6, 224, 221, 41, 68, 233, 102, 238, 111, 218, 74, 39, 110, 91, 43, 147, 57, 47, 24, 250, 17, 33, 214, 178 }, 1, "System", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4645), "admin" },
-                    { 3, "", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4651), 17, (byte)3, "superadmin@gmail.com", "Nguyễn Thanh Trung", true, new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified), "0338716085", new byte[] { 238, 186, 156, 111, 96, 221, 124, 224, 77, 109, 56, 117, 239, 246, 150, 102, 14, 205, 48, 67, 111, 253, 98, 101, 112, 133, 212, 219, 7, 41, 219, 74, 156, 244, 82, 149, 185, 118, 187, 174, 112, 81, 50, 149, 248, 58, 91, 192, 159, 140, 24, 167, 167, 68, 30, 211, 193, 244, 121, 88, 225, 156, 183, 94 }, new byte[] { 242, 112, 199, 13, 248, 151, 103, 245, 119, 53, 85, 164, 145, 110, 211, 75, 204, 250, 32, 208, 41, 190, 161, 104, 220, 174, 254, 73, 21, 201, 193, 35, 134, 239, 168, 156, 67, 55, 159, 194, 178, 232, 8, 66, 131, 244, 61, 166, 162, 218, 28, 1, 213, 254, 96, 50, 83, 60, 202, 88, 132, 186, 137, 228, 158, 239, 213, 120, 21, 175, 178, 92, 23, 255, 61, 4, 1, 156, 176, 16, 21, 207, 15, 23, 125, 197, 241, 230, 52, 250, 71, 176, 115, 65, 26, 89, 61, 170, 253, 171, 72, 109, 87, 56, 6, 224, 221, 41, 68, 233, 102, 238, 111, 218, 74, 39, 110, 91, 43, 147, 57, 47, 24, 250, 17, 33, 214, 178 }, 0, "System", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4652), "user" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Sys_User_Role",
-                columns: new[] { "Id", "RoleId", "UserId" },
-                values: new object[,]
-                {
-                    { 4, 1, 4 },
-                    { 5, 1, 5 }
+                    { 1, "", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8772), 15, (byte)3, "superadmin@gmail.com", "Nguyễn Khanh Tùng", true, new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified), "0338716085", new byte[] { 172, 84, 0, 53, 65, 191, 231, 109, 13, 172, 251, 106, 30, 248, 76, 197, 222, 218, 245, 120, 33, 214, 75, 10, 139, 13, 179, 37, 112, 13, 0, 120, 68, 123, 152, 131, 186, 134, 171, 142, 108, 84, 100, 111, 137, 42, 216, 133, 11, 156, 48, 92, 97, 188, 0, 29, 51, 25, 12, 229, 208, 202, 195, 177 }, new byte[] { 103, 156, 76, 20, 132, 58, 219, 231, 124, 87, 125, 41, 36, 249, 117, 74, 84, 105, 216, 192, 203, 198, 116, 19, 28, 121, 178, 239, 33, 193, 108, 34, 173, 94, 122, 221, 92, 134, 2, 134, 12, 103, 158, 251, 154, 27, 153, 71, 70, 164, 177, 177, 110, 209, 254, 13, 111, 105, 217, 143, 11, 44, 233, 248, 214, 58, 203, 59, 13, 145, 95, 42, 181, 132, 97, 134, 232, 33, 54, 146, 245, 77, 80, 89, 208, 175, 207, 96, 236, 205, 169, 121, 159, 195, 118, 34, 127, 5, 119, 230, 250, 171, 177, 172, 148, 212, 232, 73, 200, 104, 171, 156, 136, 122, 173, 92, 53, 11, 7, 141, 189, 225, 152, 112, 56, 97, 124, 118 }, 1, "System", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8784), "superadmin" },
+                    { 2, "", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8806), 29, (byte)3, "superadmin@gmail.com", "Nguyễn Khanh Tùng", true, new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified), "0338716085", new byte[] { 172, 84, 0, 53, 65, 191, 231, 109, 13, 172, 251, 106, 30, 248, 76, 197, 222, 218, 245, 120, 33, 214, 75, 10, 139, 13, 179, 37, 112, 13, 0, 120, 68, 123, 152, 131, 186, 134, 171, 142, 108, 84, 100, 111, 137, 42, 216, 133, 11, 156, 48, 92, 97, 188, 0, 29, 51, 25, 12, 229, 208, 202, 195, 177 }, new byte[] { 103, 156, 76, 20, 132, 58, 219, 231, 124, 87, 125, 41, 36, 249, 117, 74, 84, 105, 216, 192, 203, 198, 116, 19, 28, 121, 178, 239, 33, 193, 108, 34, 173, 94, 122, 221, 92, 134, 2, 134, 12, 103, 158, 251, 154, 27, 153, 71, 70, 164, 177, 177, 110, 209, 254, 13, 111, 105, 217, 143, 11, 44, 233, 248, 214, 58, 203, 59, 13, 145, 95, 42, 181, 132, 97, 134, 232, 33, 54, 146, 245, 77, 80, 89, 208, 175, 207, 96, 236, 205, 169, 121, 159, 195, 118, 34, 127, 5, 119, 230, 250, 171, 177, 172, 148, 212, 232, 73, 200, 104, 171, 156, 136, 122, 173, 92, 53, 11, 7, 141, 189, 225, 152, 112, 56, 97, 124, 118 }, 1, "System", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8808), "admin" },
+                    { 3, "", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8824), 17, (byte)3, "superadmin@gmail.com", "Nguyễn Thanh Trung", true, new DateTime(2024, 3, 28, 22, 1, 2, 0, DateTimeKind.Unspecified), "0338716085", new byte[] { 172, 84, 0, 53, 65, 191, 231, 109, 13, 172, 251, 106, 30, 248, 76, 197, 222, 218, 245, 120, 33, 214, 75, 10, 139, 13, 179, 37, 112, 13, 0, 120, 68, 123, 152, 131, 186, 134, 171, 142, 108, 84, 100, 111, 137, 42, 216, 133, 11, 156, 48, 92, 97, 188, 0, 29, 51, 25, 12, 229, 208, 202, 195, 177 }, new byte[] { 103, 156, 76, 20, 132, 58, 219, 231, 124, 87, 125, 41, 36, 249, 117, 74, 84, 105, 216, 192, 203, 198, 116, 19, 28, 121, 178, 239, 33, 193, 108, 34, 173, 94, 122, 221, 92, 134, 2, 134, 12, 103, 158, 251, 154, 27, 153, 71, 70, 164, 177, 177, 110, 209, 254, 13, 111, 105, 217, 143, 11, 44, 233, 248, 214, 58, 203, 59, 13, 145, 95, 42, 181, 132, 97, 134, 232, 33, 54, 146, 245, 77, 80, 89, 208, 175, 207, 96, 236, 205, 169, 121, 159, 195, 118, 34, 127, 5, 119, 230, 250, 171, 177, 172, 148, 212, 232, 73, 200, 104, 171, 156, 136, 122, 173, 92, 53, 11, 7, 141, 189, 225, 152, 112, 56, 97, 124, 118 }, 0, "System", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(8825), "user" }
                 });
 
             migrationBuilder.InsertData(
@@ -111,9 +103,9 @@ namespace API.Migrations
                 columns: new[] { "Id", "CreateTime", "RoleDescription", "RoleName", "UpdateBy", "UpdateTime" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Role for SuperAdmin", "SuperAdmin", "System", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4909) },
-                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Role for Admin", "Admin", "System", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4911) },
-                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Role for User", "User", "System", new DateTime(2024, 3, 29, 16, 29, 54, 985, DateTimeKind.Local).AddTicks(4912) }
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Role for SuperAdmin", "SuperAdmin", "System", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(9866) },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Role for Admin", "Admin", "System", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(9874) },
+                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Role for User", "User", "System", new DateTime(2024, 3, 29, 21, 29, 44, 125, DateTimeKind.Local).AddTicks(9893) }
                 });
 
             migrationBuilder.InsertData(
@@ -122,8 +114,10 @@ namespace API.Migrations
                 values: new object[,]
                 {
                     { 1, 1, 1 },
-                    { 2, 2, 2 },
-                    { 3, 2, 3 }
+                    { 2, 2, 1 },
+                    { 3, 3, 1 },
+                    { 4, 2, 2 },
+                    { 5, 3, 3 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -137,6 +131,16 @@ namespace API.Migrations
                 table: "Sys_User",
                 column: "UserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sys_User_Role_RoleId",
+                table: "Sys_User_Role",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sys_User_Role_UserId",
+                table: "Sys_User_Role",
+                column: "UserId");
         }
 
         /// <inheritdoc />

@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 // Setting DBContexts
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
+// Add Authentication
+builder.Services.AddAuthenticationConfigufation(builder.Configuration);
 // AutoMapper Settings
 builder.Services.AddAutoMapperConfiguration();
 // RepositoryAccessor and Service

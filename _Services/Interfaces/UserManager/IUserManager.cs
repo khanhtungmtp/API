@@ -7,7 +7,6 @@ namespace API._Services.Interfaces.UserManager;
 [DependencyInjection(ServiceLifetime.Scoped)]
 public interface IUserManager
 {
-    Task<AuthenticateResponse?> Authenticate(LoginDto model);
     Task<PaginationUtility<Sys_User>> GetAll(PaginationParam pagination, UserManagerSearchParam param);
     Task<Sys_User?> GetById(int id);
     Task<Sys_User?> AddAndUpdateUser(Sys_User userObj);

@@ -19,26 +19,26 @@ public class Sys_User_Role_Seed : IEntityTypeConfiguration<Sys_User_Role>
             new Sys_User_Role
             {
                 Id = 2,
-                UserId = 2,
+                UserId = 1,
                 RoleId = 2
             },
             new Sys_User_Role
             {
                 Id = 3,
-                UserId = 3,
-                RoleId = 2
+                UserId = 1,
+                RoleId = 3
             },
             new Sys_User_Role
             {
                 Id = 4,
-                UserId = 4,
-                RoleId = 1
+                UserId = 2,
+                RoleId = 2
             },
             new Sys_User_Role
             {
                 Id = 5,
-                UserId = 5,
-                RoleId = 1
+                UserId = 3,
+                RoleId = 3
             }
         );
     }

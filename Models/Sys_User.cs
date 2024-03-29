@@ -17,9 +17,7 @@ public partial class Sys_User
     [StringLength(20)]
     [Unicode(false)]
     public required string UserName { get; set; }
-    [JsonIgnore]
     public required byte[] PasswordHash { get; set; }
-    [JsonIgnore]
     public required byte[] PasswordSalt { get; set; }
     [StringLength(20)]
     public required string FullName { get; set; }
@@ -48,5 +46,7 @@ public partial class Sys_User
     public DateTime CreateTime { get; set; }
     [Required]
     public DateTime UpdateTime { get; set; }
-    public ICollection<Sys_User_Role>? UserRoles { get; set; }
+    // Định nghĩa mối quan hệ ngược từ Sys_User_Role
+    public virtual ICollection<Sys_User_Role>? UserRoles { get; set; }
+    public virtual ICollection<Sys_Role>? Roles { get; set; }
 }
